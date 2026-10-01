@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Log In — VIT ProjectHub</title>
+<script src="/js/theme.js"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+<link href="/css/style.css" rel="stylesheet">
+</head>
+<body>
+
+<div class="auth-wrapper">
+  <aside class="auth-visual">
+    <a href="/" class="brand-logo">
+      <span class="brand-mark"><img src="/img/vit-logo.png" alt="Vishwakarma Institute of Technology logo"></span>ProjectHub
+    </a>
+    <div>
+      <div class="ob-eyebrow">Vishwakarma Institute of Technology · Pune</div>
+      <h2>Welcome back to your academic workspace.</h2>
+      <p>Track SDP, EDI, Design Thinking and Course Project work: your classrooms, deadlines and grades in one place.</p>
+      <div class="ob-card-flat mt-4" style="padding:16px 18px; max-width:420px">
+        <div class="section-label mb-2">Categories</div>
+        <div class="d-flex flex-wrap gap-2">
+          <span class="category-badge cat-sdp"><i class="bi bi-code-slash"></i>SDP</span>
+          <span class="category-badge cat-edi"><i class="bi bi-lightbulb"></i>EDI</span>
+          <span class="category-badge cat-dt"><i class="bi bi-palette"></i>DT</span>
+          <span class="category-badge cat-course"><i class="bi bi-journal-bookmark"></i>Course Project</span>
+        </div>
+      </div>
+    </div>
+    <div class="text-muted" style="font-size:12px">© 2026 VIT ProjectHub · <a href="https://www.vit.edu" target="_blank" rel="noopener" style="text-decoration:underline; text-underline-offset:2px">www.vit.edu</a></div>
+  </aside>
+
+  <div class="auth-form-wrap">
+    <div class="auth-form-top">
+      <a href="/" class="brand-logo d-lg-none"><span class="brand-mark"><img src="/img/vit-logo.png" alt="Vishwakarma Institute of Technology logo"></span>ProjectHub</a>
+      <a href="/" class="topbar-crumb d-none d-lg-inline-flex"><i class="bi bi-arrow-left"></i>Back to home</a>
+      <button type="button" class="btn btn-light btn-icon js-theme-toggle"></button>
+    </div>
+    <div class="auth-form-center">
+      <div class="auth-card">
+        <div class="ob-eyebrow sm mb-2">Log in</div>
+        <h1>Log in to your account</h1>
+        <p class="text-muted mb-4" style="font-size:14px">Enter your credentials to continue.</p>
+
+        <div id="formAlert" class="alert alert-danger d-none" role="alert"></div>
+
+        <form id="loginForm" novalidate>
+          <div class="mb-3">
+            <label class="form-label" for="email">Email address</label>
+            <input type="email" class="form-control" id="email" required placeholder="you@vit.edu">
+            <div class="invalid-feedback">Please enter a valid email.</div>
+          </div>
+          <div class="mb-4">
+            <label class="form-label" for="password">Password</label>
+            <div class="input-group has-validation">
+              <input type="password" class="form-control" id="password" required minlength="6" placeholder="••••••••">
+              <button class="btn btn-outline-secondary" type="button" id="togglePw" aria-label="Show password"><i class="bi bi-eye"></i></button>
+              <div class="invalid-feedback">Password must be at least 6 characters.</div>
+            </div>
+          </div>
+          <button type="submit" class="btn btn-brand btn-lg w-100" id="submitBtn">
+            <span class="btn-text">Log in</span>
+            <span class="spinner-border spinner-border-sm d-none" id="loginSpinner"></span>
+          </button>
+        </form>
+
+        <p class="text-center text-muted mt-4 mb-0" style="font-size:14px">Don't have an account? <a href="/register.html" style="color:var(--color-blue); font-weight:500">Register</a></p>
+
+        <div class="why-box ob-card-flat mt-4 mb-0">
+          <span class="icon-tile yellow"><i class="bi bi-lightbulb"></i></span>
+          <div style="font-size:13px">
+            <div class="t">Demo credentials</div>
+            <div class="text-muted">Teacher: <span class="font-mono">teacher@vit.edu</span></div>
+            <div class="text-muted">Student: <span class="font-mono">arjun.mehta2023@vit.edu</span></div>
+            <div class="text-muted">Password: <span class="font-mono">password123</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/js/bootstrap.bundle.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+<script src="/js/api.js"></script>
+<script src="/js/common.js"></script>
+<script>
+$(function () {
+  if (Auth.isLoggedIn()) {
+    const user = Auth.getUser();
+    window.location.href = user.role === 'teacher' ? '/teacher-dashboard.html' : '/student-dashboard.html';
+    return;
+  }
+
+  $('#togglePw').on('click', function () {
+    const input = $('#password');
+    const isPw = input.attr('type') === 'password';
+    input.attr('type', isPw ? 'text' : 'password');
+    $(this).find('i').toggleClass('bi-eye bi-eye-slash');
+  });
+
+  $('#loginForm').on('submit', async function (e) {
+    e.preventDefault();
+    const form = this;
+    $('#formAlert').addClass('d-none');
+
+    if (!form.checkValidity()) {
+      e.stopPropagation();
+      $(form).addClass('was-validated');
+      return;
+    }
+
+    const $btn = $('#submitBtn');
+    $btn.prop('disabled', true);
+    $('#loginSpinner').removeClass('d-none');
+
+    try {
+      const { token, user } = await Api.post('/auth/login', {
+        email: $('#email').val().trim(),
+        password: $('#password').val(),
+      });
+      Auth.setSession(token, user);
+      window.location.href = user.role === 'teacher' ? '/teacher-dashboard.html' : '/student-dashboard.html';
+    } catch (err) {
+      $('#formAlert').removeClass('d-none').text(err.message);
+      $btn.prop('disabled', false);
+      $('#loginSpinner').addClass('d-none');
+    }
+  });
+});
+</script>
+</body>
+</html>

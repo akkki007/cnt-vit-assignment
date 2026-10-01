@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>VIT ProjectHub — Vishwakarma Institute of Technology, Pune</title>
+<script src="/js/theme.js"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+<link href="/css/style.css" rel="stylesheet">
+</head>
+<body>
+
+<header class="top-nav" id="topNav">
+  <nav class="top-nav-inner">
+    <div class="d-flex align-items-center" style="gap:28px">
+      <a class="brand-logo" href="/">
+        <span class="brand-mark"><img src="/img/vit-logo.png" alt="Vishwakarma Institute of Technology logo"></span>ProjectHub
+      </a>
+      <ul class="top-nav-links">
+        <li><a href="#how-it-works">How it works</a></li>
+        <li><a href="#categories">Categories</a></li>
+        <li><a href="#features">Features</a></li>
+      </ul>
+    </div>
+    <div class="d-flex align-items-center" style="gap:14px">
+      <button type="button" class="btn btn-light btn-icon js-theme-toggle"></button>
+      <a href="/login.html" class="top-nav-link">Log in</a>
+      <a href="/register.html" class="btn btn-brand">Get started</a>
+    </div>
+  </nav>
+</header>
+
+<main>
+  <!-- Hero -->
+  <section class="section" style="padding-top:88px">
+    <div class="section-inner">
+      <div class="hero">
+        <div class="ob-eyebrow">Vishwakarma Institute of Technology · Pune</div>
+        <h1>Every project.<br>One hub.</h1>
+        <p class="hero-sub">Classrooms, deadlines, submissions and grading for SDP, EDI, Design Thinking and Course Projects, all in one place for VIT students and faculty.</p>
+        <div class="d-flex gap-2 justify-content-center flex-wrap">
+          <a href="/register.html" class="btn btn-brand btn-lg">Create a free account</a>
+          <a href="/login.html" class="btn btn-soft btn-lg">Log in</a>
+        </div>
+        <div class="hero-note">Free for VIT students · role-based access for faculty · <a href="https://www.vit.edu" target="_blank" rel="noopener" style="text-decoration:underline; text-underline-offset:2px">www.vit.edu</a></div>
+      </div>
+
+      <div class="hero-mock">
+        <div class="hero-mock-main">
+          <div class="d-flex align-items-start justify-content-between gap-3 mb-3 flex-wrap">
+            <div>
+              <span class="category-badge cat-dt"><i class="bi bi-palette"></i>DT</span>
+              <div style="font-size:18px; font-weight:600; color:var(--color-fg-display); margin-top:8px">Design Thinking Studio</div>
+              <div class="text-muted" style="font-size:13px">DT2031 · Prof. Suresh Iyer</div>
+            </div>
+            <span class="class-code-box">XK3P9Q</span>
+          </div>
+          <div class="stage-track mb-4">
+            <span class="stage-chip done">Empathize</span>
+            <span class="stage-chip done">Define</span>
+            <span class="stage-chip current">Ideate</span>
+            <span class="stage-chip">Prototype</span>
+            <span class="stage-chip">Test</span>
+          </div>
+          <div class="mock-row">
+            <div><div style="font-weight:500">Empathy Map &amp; User Interviews</div><div class="text-muted" style="font-size:12px">Empathize · closed</div></div>
+            <span class="status-badge graded">92 / 100</span>
+          </div>
+          <div class="mock-row">
+            <div><div style="font-weight:500">Problem Definition Statement</div><div class="text-muted" style="font-size:12px">Define · due in 5 days</div></div>
+            <span class="status-badge submitted">Submitted</span>
+          </div>
+          <div class="mock-row">
+            <div><div style="font-weight:500">Ideation Workshop Output</div><div class="text-muted" style="font-size:12px">Ideate · due in 9 days</div></div>
+            <span class="status-badge pending">Pending</span>
+          </div>
+        </div>
+        <div class="hero-mock-side">
+          <div class="section-label mb-3">Class progress</div>
+          <div class="mb-3">
+            <div class="d-flex justify-content-between mb-1"><span style="font-weight:500">Submitted</span><span style="font-weight:600">38 / 42</span></div>
+            <div class="bar-track"><div class="bar-fill" style="width:90%; background:var(--color-status-blue)"></div></div>
+          </div>
+          <div class="mb-3">
+            <div class="d-flex justify-content-between mb-1"><span style="font-weight:500">Graded</span><span style="font-weight:600">31 / 38</span></div>
+            <div class="bar-track"><div class="bar-fill" style="width:82%; background:var(--color-status-green)"></div></div>
+          </div>
+          <div class="mb-3">
+            <div class="d-flex justify-content-between mb-1"><span style="font-weight:500">Late</span><span style="font-weight:600">4</span></div>
+            <div class="bar-track"><div class="bar-fill" style="width:10%; background:var(--color-status-red)"></div></div>
+          </div>
+          <div class="kv-row"><span class="k">Average score</span><span class="v">84%</span></div>
+          <div class="kv-row"><span class="k">Next deadline</span><span class="v">5 days</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- How it works -->
+  <section class="section soft" id="how-it-works">
+    <div class="section-inner">
+      <div class="section-head">
+        <div class="ob-eyebrow">How it works</div>
+        <h2>Create. Submit. Grade.</h2>
+        <p>The whole loop from a new classroom to a graded submission, with nothing lost in email threads or shared drives.</p>
+      </div>
+      <div class="row g-4">
+        <div class="col-md-6 col-lg-3">
+          <div class="ob-card-flat h-100" style="padding:28px 24px">
+            <div class="step-num mb-3">1</div>
+            <div style="font-size:17px; font-weight:600; color:var(--color-fg-display); margin-bottom:8px">Teacher creates a classroom</div>
+            <p class="text-muted mb-0" style="font-size:14px; line-height:1.55">Pick a category and get a unique class code to share with the batch.</p>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-3">
+          <div class="ob-card-flat h-100" style="padding:28px 24px">
+            <div class="step-num mb-3">2</div>
+            <div style="font-size:17px; font-weight:600; color:var(--color-fg-display); margin-bottom:8px">Students join with the code</div>
+            <p class="text-muted mb-0" style="font-size:14px; line-height:1.55">Enrollment is instant. No approval queue, no spreadsheets.</p>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-3">
+          <div class="ob-card-flat h-100" style="padding:28px 24px">
+            <div class="step-num mb-3">3</div>
+            <div style="font-size:17px; font-weight:600; color:var(--color-fg-display); margin-bottom:8px">Assignments go out</div>
+            <p class="text-muted mb-0" style="font-size:14px; line-height:1.55">Each one is tied to a project stage, with a deadline and attached resources.</p>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-3">
+          <div class="ob-card-flat h-100" style="padding:28px 24px">
+            <div class="step-num mb-3">4</div>
+            <div style="font-size:17px; font-weight:600; color:var(--color-fg-display); margin-bottom:8px">Faculty grade and reply</div>
+            <p class="text-muted mb-0" style="font-size:14px; line-height:1.55">Marks and written feedback reach the student as soon as they are saved.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Categories -->
+  <section class="section" id="categories">
+    <div class="section-inner">
+      <div class="section-head" style="margin-bottom:32px">
+        <div class="ob-eyebrow">Academic categories</div>
+        <h2>One hub for every kind of project.</h2>
+        <p>Each category brings its own staged workflow. Pick one to see its stages.</p>
+      </div>
+
+      <div class="text-center mb-4">
+        <ul class="nav category-pills" id="landingCatPills" role="tablist">
+          <li class="nav-item" role="presentation"><button class="nav-link active" data-cat="SDP" data-bs-toggle="pill" data-bs-target="#pane-sdp" type="button"><i class="bi bi-code-slash"></i>SDP</button></li>
+          <li class="nav-item" role="presentation"><button class="nav-link" data-cat="EDI" data-bs-toggle="pill" data-bs-target="#pane-edi" type="button"><i class="bi bi-lightbulb"></i>EDI</button></li>
+          <li class="nav-item" role="presentation"><button class="nav-link" data-cat="DT" data-bs-toggle="pill" data-bs-target="#pane-dt" type="button"><i class="bi bi-palette"></i>DT</button></li>
+          <li class="nav-item" role="presentation"><button class="nav-link" data-cat="Course Project" data-bs-toggle="pill" data-bs-target="#pane-course" type="button"><i class="bi bi-journal-bookmark"></i>Course Projects</button></li>
+        </ul>
+      </div>
+
+      <div class="tab-content ob-card" style="padding:32px; box-shadow:var(--shadow-2)">
+        <div class="tab-pane fade show active" id="pane-sdp">
+          <div class="row align-items-center g-4">
+            <div class="col-lg-5">
+              <span class="category-badge cat-sdp mb-3"><i class="bi bi-code-slash"></i>SDP</span>
+              <h3 class="mb-2">Software Development Project</h3>
+              <p class="text-muted mb-0" style="font-size:14px; line-height:1.6">Take students through the full software lifecycle, with every stage's deliverables and deadlines tracked automatically.</p>
+            </div>
+            <div class="col-lg-7">
+              <div class="row row-cols-2 g-3">
+                <div class="col"><div class="ob-card-flat d-flex align-items-center gap-2 p-3 card-soft"><span class="step-num neutral">1</span><span style="font-weight:500">Requirements</span></div></div>
+                <div class="col"><div class="ob-card-flat d-flex align-items-center gap-2 p-3 card-soft"><span class="step-num neutral">2</span><span style="font-weight:500">Design</span></div></div>
+                <div class="col"><div class="ob-card-flat d-flex align-items-center gap-2 p-3 card-soft"><span class="step-num neutral">3</span><span style="font-weight:500">Development</span></div></div>
+                <div class="col"><div class="ob-card-flat d-flex align-items-center gap-2 p-3 card-soft"><span class="step-num neutral">4</span><span style="font-weight:500">Testing</span></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="tab-pane fade" id="pane-edi">
+          <div class="row align-items-center g-4">
+            <div class="col-lg-5">
+              <span class="category-badge cat-edi mb-3"><i class="bi bi-lightbulb"></i>EDI</span>
+              <h3 class="mb-2">Engineering Design &amp; Innovation</h3>
+              <p class="text-muted mb-0" style="font-size:14px; line-height:1.6">Move engineering ideas from research to a working prototype, one tracked milestone at a time.</p>
+            </div>
+            <div class="col-lg-7">
+              <div class="row row-cols-2 g-3">
+                <div class="col"><div class="ob-card-flat d-flex align-items-center gap-2 p-3 card-soft"><span class="step-num neutral">1</span><span style="font-weight:500">Research</span></div></div>
+                <div class="col"><div class="ob-card-flat d-flex align-items-center gap-2 p-3 card-soft"><span class="step-num neutral">2</span><span style="font-weight:500">Ideation</span></div></div>
+                <div class="col"><div class="ob-card-flat d-flex align-items-center gap-2 p-3 card-soft"><span class="step-num neutral">3</span><span style="font-weight:500">Design</span></div></div>
+                <div class="col"><div class="ob-card-flat d-flex align-items-center gap-2 p-3 card-soft"><span class="step-num neutral">4</span><span style="font-weight:500">Prototype</span></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="tab-pane fade" id="pane-dt">
+          <div class="row align-items-center g-4">
+            <div class="col-lg-5">
+              <span class="category-badge cat-dt mb-3"><i class="bi bi-palette"></i>DT</span>
+              <h3 class="mb-2">Design Thinking</h3>
+              <p class="text-muted mb-0" style="font-size:14px; line-height:1.6">Run a human-centred design process, from empathy interviews to tested prototypes.</p>
+            </div>
+            <div class="col-lg-7">
+              <div class="row row-cols-2 row-cols-md-3 g-3">
+                <div class="col"><div class="ob-card-flat d-flex align-items-center gap-2 p-3 card-soft"><span class="step-num neutral">1</span><span style="font-weight:500">Empathize</span></div></div>
+                <div class="col"><div class="ob-card-flat d-flex align-items-center gap-2 p-3 card-soft"><span class="step-num neutral">2</span><span style="font-weight:500">Define</span></div></div>
+                <div class="col"><div class="ob-card-flat d-flex align-items-center gap-2 p-3 card-soft"><span class="step-num neutral">3</span><span style="font-weight:500">Ideate</span></div></div>
+                <div class="col"><div class="ob-card-flat d-flex align-items-center gap-2 p-3 card-soft"><span class="step-num neutral">4</span><span style="font-weight:500">Prototype</span></div></div>
+                <div class="col"><div class="ob-card-flat d-flex align-items-center gap-2 p-3 card-soft"><span class="step-num neutral">5</span><span style="font-weight:500">Test</span></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="tab-pane fade" id="pane-course">
+          <div class="row align-items-center g-4">
+            <div class="col-lg-5">
+              <span class="category-badge cat-course mb-3"><i class="bi bi-journal-bookmark"></i>Course Project</span>
+              <h3 class="mb-2">Course-specific Projects</h3>
+              <p class="text-muted mb-0" style="font-size:14px; line-height:1.6">Regular course assignments and mini-projects get the same submission and grading flow.</p>
+            </div>
+            <div class="col-lg-7">
+              <div class="why-box ob-card-flat mb-0">
+                <span class="icon-tile yellow"><i class="bi bi-journal-check"></i></span>
+                <div>
+                  <div class="t">Single-stage workflow</div>
+                  <p class="text-muted mb-0">Suited to weekly assignments, labs and mini-projects tied to any course.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features -->
+  <section class="section soft" id="features">
+    <div class="section-inner">
+      <div class="row g-5 align-items-start">
+        <div class="col-lg-5" style="position:sticky; top:96px">
+          <div class="ob-eyebrow">Main features</div>
+          <h2 style="margin:12px 0 16px">Everything a classroom needs.</h2>
+          <p class="text-muted" style="font-size:16px; line-height:1.6; max-width:420px">Faculty get one place to post work and review it. Students get one list of what is due, what is submitted and what is graded.</p>
+          <a href="/register.html" class="btn btn-soft mt-2">Get started <i class="bi bi-arrow-right"></i></a>
+        </div>
+        <div class="col-lg-7">
+          <div class="row g-3">
+            <div class="col-sm-6"><div class="ob-card-flat feature-card"><span class="icon-tile"><i class="bi bi-columns-gap"></i></span><div class="title">Classrooms &amp; class codes</div><p>Teachers create classrooms and share a unique code. Students join instantly.</p></div></div>
+            <div class="col-sm-6"><div class="ob-card-flat feature-card"><span class="icon-tile"><i class="bi bi-cloud-upload"></i></span><div class="title">Assignments &amp; submissions</div><p>Set deadlines, attach resources and collect multi-file submissions with status tracking.</p></div></div>
+            <div class="col-sm-6"><div class="ob-card-flat feature-card"><span class="icon-tile"><i class="bi bi-clipboard-check"></i></span><div class="title">Grading &amp; feedback</div><p>Review each submission, assign marks and write feedback from one screen.</p></div></div>
+            <div class="col-sm-6"><div class="ob-card-flat feature-card"><span class="icon-tile"><i class="bi bi-bell"></i></span><div class="title">Notifications</div><p>New assignments, resources and grades show up in the bell as they happen.</p></div></div>
+            <div class="col-sm-6"><div class="ob-card-flat feature-card"><span class="icon-tile"><i class="bi bi-shield-check"></i></span><div class="title">Role-based access</div><p>JWT authentication with separate student and teacher permissions, enforced on the server.</p></div></div>
+            <div class="col-sm-6"><div class="ob-card-flat feature-card"><span class="icon-tile"><i class="bi bi-phone"></i></span><div class="title">Works everywhere</div><p>Responsive on desktop, tablet and phone, in light or dark mode.</p></div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Final CTA -->
+  <section class="section" id="workflow">
+    <div class="section-inner text-center">
+      <h2 style="margin-bottom:22px">Bring your next project here.</h2>
+      <a href="/register.html" class="btn btn-brand" style="height:42px; padding:0 22px; font-size:15px">Create your account</a>
+      <div class="text-muted" style="margin-top:14px; font-size:13px">Already registered? <a href="/login.html" style="color:var(--color-blue)">Log in</a></div>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="site-footer-grid">
+    <div>
+      <span class="brand-logo"><span class="brand-mark"><img src="/img/vit-logo.png" alt="Vishwakarma Institute of Technology logo"></span>ProjectHub</span>
+      <p class="text-muted" style="margin-top:14px; font-size:13px; max-width:280px; line-height:1.55">Project and assignment management for Vishwakarma Institute of Technology, Pune students and faculty.</p>
+    </div>
+    <div class="site-footer-col">
+      <div class="head">Categories</div>
+      <a href="#categories">Software Development Project</a>
+      <a href="#categories">Engineering Design &amp; Innovation</a>
+      <a href="#categories">Design Thinking</a>
+      <a href="#categories">Course Projects</a>
+    </div>
+    <div class="site-footer-col">
+      <div class="head">Get started</div>
+      <a href="/login.html">Log in</a>
+      <a href="/register.html">Register</a>
+      <a href="https://www.vit.edu" target="_blank" rel="noopener">www.vit.edu</a>
+    </div>
+  </div>
+  <div class="site-footer-bottom">
+    <span>Built for academic use at VIT, Pune.</span>
+    <span>© 2026 VIT ProjectHub</span>
+  </div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/js/bootstrap.bundle.min.js"></script>
+<script>
+  window.addEventListener('scroll', function () {
+    document.getElementById('topNav').classList.toggle('scrolled', window.scrollY > 4);
+  });
+</script>
+</body>
+</html>

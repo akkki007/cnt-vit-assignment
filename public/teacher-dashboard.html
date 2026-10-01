@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Teacher Dashboard — VIT ProjectHub</title>
+<script src="/js/theme.js"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+<link href="/css/style.css" rel="stylesheet">
+</head>
+<body>
+
+<div class="app-shell">
+  <div class="sidebar-backdrop" id="sidebarBackdrop"></div>
+  <aside class="sidebar" id="sidebar">
+    <a href="/" class="brand-logo">
+      <span class="brand-mark"><img src="/img/vit-logo.png" alt="Vishwakarma Institute of Technology logo"></span>ProjectHub
+    </a>
+    <div class="nav-label" style="padding-top:0">Workspace</div>
+    <nav class="nav">
+      <a class="nav-link active" href="/teacher-dashboard.html"><i class="bi bi-grid-1x2"></i>Dashboard</a>
+      <a class="nav-link" href="#" data-bs-toggle="modal" data-bs-target="#createClassroomModal"><i class="bi bi-plus-square"></i>Create classroom</a>
+      <a class="nav-link" href="#myClassrooms"><i class="bi bi-columns-gap"></i>My classrooms</a>
+      <a class="nav-link" href="#pending"><i class="bi bi-clipboard-check"></i>Pending grading</a>
+    </nav>
+    <div class="sidebar-spacer"></div>
+    <div class="sidebar-user">
+      <span class="js-user-avatar"></span>
+      <div class="flex-grow-1 overflow-hidden">
+        <div class="text-truncate js-user-name" style="font-size:13px; font-weight:500">-</div>
+        <div class="text-muted js-user-role" style="font-size:11px">Faculty</div>
+      </div>
+    </div>
+    <nav class="nav">
+      <a href="#" id="logoutBtn" class="nav-link logout-link"><i class="bi bi-box-arrow-right"></i>Log out</a>
+    </nav>
+  </aside>
+
+  <div class="main-content">
+    <header class="topbar">
+      <div class="d-flex align-items-center gap-2">
+        <button class="btn btn-light btn-icon sidebar-toggle-btn" id="sidebarToggle" aria-label="Menu"><i class="bi bi-list"></i></button>
+        <div class="topbar-crumb">Faculty <span class="text-faint">/</span> <span style="color:var(--color-fg)">Dashboard</span></div>
+      </div>
+      <div class="topbar-actions">
+        <button type="button" class="btn btn-light btn-icon js-theme-toggle"></button>
+        <div class="dropdown">
+          <button class="btn btn-light btn-icon position-relative" data-bs-toggle="dropdown" aria-label="Notifications"><i class="bi bi-bell"></i><span class="notif-dot d-none" id="notifBadge"></span></button>
+          <div class="dropdown-menu dropdown-menu-end notif-menu p-0">
+            <div class="notif-head">
+              <strong>Notifications</strong>
+              <a href="#" id="markAllReadBtn">Mark all read</a>
+            </div>
+            <div id="notifList" style="max-height:340px; overflow-y:auto;"></div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main class="content-area">
+      <div class="page-header">
+        <div style="min-width:0">
+          <div class="ob-eyebrow">Faculty</div>
+          <h1>Dashboard</h1>
+          <p>Manage your classrooms, post assignments and grade what students hand in.</p>
+        </div>
+        <div class="page-header-actions">
+          <button class="btn btn-brand" data-bs-toggle="modal" data-bs-target="#createClassroomModal"><i class="bi bi-plus-lg"></i>Create classroom</button>
+        </div>
+      </div>
+
+      <div class="row g-3 mb-5" id="statsRow"></div>
+
+      <div class="section-title" id="myClassrooms">
+        <h3>My classrooms</h3>
+      <ul class="nav category-pills" id="categoryPills">
+        <li class="nav-item"><button class="nav-link active" data-cat="all" type="button">All</button></li>
+        <li class="nav-item"><button class="nav-link" data-cat="SDP" type="button"><i class="bi bi-code-slash"></i>SDP</button></li>
+        <li class="nav-item"><button class="nav-link" data-cat="EDI" type="button"><i class="bi bi-lightbulb"></i>EDI</button></li>
+        <li class="nav-item"><button class="nav-link" data-cat="DT" type="button"><i class="bi bi-palette"></i>DT</button></li>
+        <li class="nav-item"><button class="nav-link" data-cat="Course Project" type="button"><i class="bi bi-journal-bookmark"></i>Course Projects</button></li>
+      </ul>
+      </div>
+      <div class="row g-3 mb-5" id="classroomGrid">
+        <div class="col-12 text-center py-5"><div class="spinner-border spinner-border-sm"></div></div>
+      </div>
+
+      <div class="section-title" id="pending">
+        <h3>Assignments needing attention</h3>
+        <div class="search-box">
+          <i class="bi bi-search"></i>
+          <input type="text" class="form-control" id="assignmentSearch" placeholder="Search assignments">
+        </div>
+      </div>
+      <div class="card-app overflow-hidden">
+        <div class="table-responsive">
+          <table class="table table-app align-middle mb-0">
+            <thead>
+              <tr>
+                <th>Assignment</th>
+                <th>Classroom</th>
+                <th>Category</th>
+                <th>Deadline</th>
+                <th>Submissions</th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody id="assignmentTableBody">
+              <tr><td colspan="6" class="text-center py-5"><div class="spinner-border spinner-border-sm"></div></td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div id="assignmentEmptyState" class="empty-state d-none">
+          <i class="bi bi-inbox"></i>
+          <div>No assignments found.</div>
+        </div>
+      </div>
+    </main>
+  </div>
+</div>
+
+<!-- Create Classroom Modal -->
+<div class="modal fade" id="createClassroomModal" tabindex="-1">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Create a classroom</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+      <div class="modal-body">
+        <div id="createAlert" class="alert alert-danger d-none"></div>
+        <form id="createClassroomForm" novalidate>
+          <div class="mb-3">
+            <label class="form-label">Classroom Name</label>
+            <input type="text" class="form-control" id="cName" required placeholder="e.g. Software Development Project - Batch C">
+            <div class="invalid-feedback">Classroom name is required.</div>
+          </div>
+          <div class="mb-3">
+            <label class="form-label">Category</label>
+            <select class="form-select" id="cCategory" required>
+              <option value="SDP">SDP — Software Development Project</option>
+              <option value="EDI">EDI — Engineering Design &amp; Innovation</option>
+              <option value="DT">DT — Design Thinking</option>
+              <option value="Course Project">Course Project</option>
+            </select>
+          </div>
+          <div class="mb-3">
+            <label class="form-label">Subject Code</label>
+            <input type="text" class="form-control" id="cSubject" placeholder="e.g. CSE3999">
+          </div>
+          <div class="mb-3">
+            <label class="form-label">Description</label>
+            <textarea class="form-control" id="cDescription" rows="3" placeholder="Brief description of this classroom"></textarea>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-soft" data-bs-dismiss="modal">Cancel</button>
+        <button class="btn btn-brand" id="createSubmitBtn">Create Classroom</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Classroom Created Success Modal -->
+<div class="modal fade" id="classCreatedModal" tabindex="-1">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content text-center">
+      <div class="modal-body p-4">
+        <span class="icon-tile lg green mb-3"><i class="bi bi-check-lg"></i></span>
+        <h3 class="mb-1">Classroom created</h3>
+        <p class="text-muted" style="font-size:14px">Share this code with your students so they can join.</p>
+        <div class="class-code-box xl" id="newClassCode">------</div>
+        <button class="btn btn-brand w-100 mt-4" data-bs-dismiss="modal">Done</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/js/bootstrap.bundle.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+<script src="/js/api.js"></script>
+<script src="/js/common.js"></script>
+<script src="/js/teacher-dashboard.js"></script>
+</body>
+</html>
